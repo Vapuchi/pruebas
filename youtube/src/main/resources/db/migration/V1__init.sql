@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS youtuber(
+id SERIAL,
+channel VARCHAR(100) NOT NULL,
+all_videos VARCHAR(100) ,
+monetize BOOLEAN DEFAULT FALSE,
+PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS video(
+id SERIAL,
+title VARCHAR(100) NOT NULL,
+duration INT NOT NULL ,
+youtuber_id INT,
+PRIMARY KEY (id),
+FOREIGN KEY(youtuber_id) REFERENCES youtuber(id)
+);
